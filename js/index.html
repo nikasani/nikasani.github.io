@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js"></script>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-[url('black.png')] text-[2rem] bg-cover bg-center flex flex-col items-center min-h-screen ">
+    <h1 class="text-white mt-[100px]">სკოლა სრულდება</h1>
+
+    <div class="countdown-container flex flex-wrap justify-center text-white ">
+        <div class="countdown-el days-c text-center">
+            <p class="big-text bold my-[1rem] mx-[2rem] "  id="days">0</p>
+            <span>დღეში</span>
+        </div>
+        <div class="countdown-el hours-c text-center ">
+            <p class="big-text bold my-[1rem] mx-[2rem]" id="hours">0</p>
+            <span>საათში</span>
+        </div>
+        <div class="countdown-el mins-c text-center">
+            <p class="big-text  bold my-[1rem] mx-[2rem]" id="mins">0</p>
+            <span>წუთში</span>
+        </div>
+        <div class="countdown-el seconds-c text-center" >
+            <p class="big-text  bold my-[1rem] mx-[2rem]"  id="seconds">0</p>
+            <span>წამში</span>
+        </div>
+
+    </div>
+    <script>
+        const days1=document.getElementById('days');
+const hours1=document.getElementById('hours');
+const mins1=document.getElementById('mins');
+const seconds1=document.getElementById('seconds');
+
+const newyears="1 Jun 2023";
+
+function countdown(){
+const newYearsDate= new Date(newyears);
+const currentdate= new Date();
+
+
+const totalSeconds = (newYearsDate - currentdate) / 1000;
+
+const days = Math.floor(totalSeconds / 3600 / 24);
+
+
+
+
+const hour=Math.floor(totalSeconds/3600) % 24;
+const minute=Math.floor(totalSeconds/60) % 60;
+const seconds= Math.floor(totalSeconds) % 60;
+
+
+days1.innerHTML = days;
+hours1.innerHTML = hour;
+mins1.innerHTML = minute;
+seconds1.innerHTML = seconds;
+
+}
+
+
+countdown();
+
+setInterval(countdown,1000); 
+    </script>
+</body>
+
+</html>
